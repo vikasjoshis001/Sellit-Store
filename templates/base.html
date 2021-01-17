@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    {% load static %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+</head>
+
+<body>
+    <div>
+        <h1><b>Sellit</b></h1>
+    </div>
+    <div class="navbar">
+        <ul>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/products/">Products</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="/add/">Add Products</a></li>
+            <li><a href="/profile/">My Profile</a></li>
+            <li><a href="/logout/">Logout</a></li>
+            {% else %}
+            <li><a href="/sign_up/">Sign up</a></li>
+            <li><a href="/login/">Login</a></li>
+            {% endif %}
+            <li><a href="/#/"><i style="color:blue" class="fa">&#xf07a;</i> Cart</a></li>
+        </ul>
+    </div>
+</body>
+
+</html>
