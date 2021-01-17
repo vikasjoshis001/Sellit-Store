@@ -1,0 +1,79 @@
+<html>
+
+<head>
+    <title>Sellit|Sign Up</title>
+
+    {% load static %}
+    <!-- <link rel='stylesheet' type='text/css' href="{% static 'css/sign_up/sign_up.css' %}"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <form action="sign" method="POST"> {% csrf_token %}
+        <div class="container">
+            <h1><b><i>Sign Up Form</i></b></h1>
+            <br>
+            <p><b><i>Please fill this form to create an Sellit Account.</i></b></p>
+            <div style="color:Red">
+                {% for message in messages %}
+                {{message}}
+                {% endfor %}
+            </div>
+            <hr>
+
+            <div class="form-group">
+                <label for="first_name"><b>First Name</b></label>
+                <input autocomplete="off" class="form-control" type="text" placeholder="First Name" name="first_name"
+                    required>
+            </div>
+
+            <div class="form-group">
+                <label for="last_name"><b>Last Name</b></label>
+                <input autocomplete="off" class="form-control" type="text" placeholder="Last Name" name="last_name"
+                    required>
+            </div>
+
+            <div class="form-group">
+                <label for="username"><b>Userame</b></label>
+                <input autocomplete="off" class="form-control" type="text" placeholder="Username" name="username"
+                    required>
+            </div>
+
+            <div class="form-group">
+                <label for="email"><b>Email</b></label>
+                <input autocomplete="off" class="form-control" type="email" placeholder="Enter Email" name="email"
+                    required>
+            </div>
+
+            <div class="form-group">
+                <label for="password1"><b>Password</b></label>
+                <input autocomplete="off" class="form-control" type="password" placeholder="Password" name="password1"
+                    required>
+            </div>
+
+            <div class="form-group">
+                <label for="password2"><b>Repeat Password</b></label>
+                <input autocomplete="off" class="form-control" type="password" placeholder="Repeat Password"
+                    name="password2" required>
+            </div>
+
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">
+                    <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.
+                    </p>
+                </label>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Sign Up</button>
+
+        </div>
+    </form>
+
+</body>
+
+</html>
