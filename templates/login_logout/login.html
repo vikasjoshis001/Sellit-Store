@@ -1,0 +1,216 @@
+
+<html>
+
+<head>
+    <title>Sellit|Login</title>
+
+    {% load static %}
+    <link rel='stylesheet' type='text/css' href="{% static 'css/login_logout/login.css' %}">
+    <!-- FORGOT FORM  -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+    <style>
+        /* FORGOT FORM */
+        /* Button used to open the contact form - fixed at the bottom of the page */
+        .open-button {
+            background-color: rgb(0, 0, 255);
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            opacity: 0.8;
+            position: relative;
+            bottom: 20px;
+            top: 0px;
+            left: 25px;
+            width: 150px;
+        }
+
+        /* The popup form - hidden by default */
+        .form-popup {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            right: 15px;
+            border: 3px solid #f1f1f1;
+            z-index: 9;
+        }
+
+        .close {
+            position: relative;
+            left: 200px;
+            bottom: 50px;
+        }
+
+        /* Add styles to the form container */
+        .form-container {
+            max-width: 5000px;
+            padding: 30px;
+            position: relative;
+            right: 400px;
+            bottom: 200px;
+            background-color: white;
+        }
+
+        /* Full-width input fields */
+        .form-container input[type=text],
+        .form-container input[type=password] {
+            width: 100%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            border: none;
+            background: #f1f1f1;
+        }
+
+        /* When the inputs get focus, do something */
+        .form-container input[type=text]:focus,
+        .form-container input[type=password]:focus {
+            background-color: #ddd;
+            outline: none;
+        }
+
+        /* Set a style for the submit/login button */
+        .form-container .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 16px 20px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            margin-bottom: 10px;
+            opacity: 0.8;
+        }
+
+
+        /* Add a red background color to the cancel button */
+        .form-container .cancel {
+            background-color: red;
+        }
+
+        /* Add some hover effects to buttons */
+        .form-container .btn:hover,
+        .open-button:hover {
+            opacity: 1;
+        }
+
+        @media screen and (max-width: 600px) {
+
+            /* The popup form - hidden by default */
+            .form-popup {
+                display: none;
+                position: fixed;
+                bottom: 0;
+                left: 500px;
+                border: 3px solid #f1f1f1;
+                width: 300px;
+                right: 1000px;
+                /* background-color:blue; */
+            }
+
+            .close {
+                position: relative;
+                left: 120px;
+                /* right: 150px; */
+                bottom: 50px;
+            }
+
+        }
+
+        /* FORGOT FORM */
+    </style>
+
+    <script>
+        function openForm() {
+            document.getElementById("myForm").style.display = "block";
+            document.getElementById("login_form").style.filter = "blur(3px)";
+
+        }
+
+        function closeForm() {
+            document.getElementById("myForm").style.display = "none";
+            document.getElementById("login_form").style.filter = "blur(0px)";
+
+        }
+
+    </script>
+
+</head>
+
+<!-- FORGOT PASSWORD FORM -->
+
+<div class="form-popup " id="myForm">
+    <form action="forgot/" method="POST" class="form-container"> {% csrf_token %}
+        <h3>Reset Password <button type="button" class="close" aria-label="Close" onclick="closeForm() "><span
+                    aria-hidden="true">&times;</span></button></h3>
+        <hr>
+        <div style="color:Red;position:relative;right:30px;">
+            {% for message in messages %}
+            {{message}}
+            {% endfor %}
+        </div>
+        <label for="email"><b>Email</b></label>
+        <input type="text" placeholder="Enter Email" name="email" required>
+
+        <button type="submit" class="btn">Submit</button>
+    </form>
+</div>
+
+<!-- FORGOT PASSWORD FORM -->
+
+
+<!-- LOGIN FORM -->
+<div class="container">
+    <h1><b><i>Login Form</i></b></h1>
+    <div style="color:Red">
+        {% for message in messages %}
+        {{message}}
+        {% endfor %}
+    </div>
+
+    <form id="login_form" action="login/" method="POST"> {% csrf_token %}
+
+        <div class="container">
+            <label for="username"><b>Username</b></label>
+            <input autocomplete="off" type="text" placeholder="Username" name="username" required>
+
+            <label for="password"><b>Password</b></label>
+            <input type="password" placeholder="Password" name="password" required>
+
+            <button type="submit">Login</button>
+            <label>
+                <input type="checkbox" checked="checked" name="remember"> Remember me
+            </label>
+        </div>
+
+        <div class="container" style="background-color:#f1f1f1">
+            <button type="button" class="open-button" onclick="openForm()">Forgot Password</button>
+        </div>
+    </form>
+</div>
+
+<!-- LOGIN FORM -->
+
+
+
+
+
+
+
+
+
+
+</html>
