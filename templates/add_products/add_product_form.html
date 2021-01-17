@@ -1,0 +1,52 @@
+{% load crispy_forms_tags %}
+
+
+<html>
+<title>Sellit|Add Product</title>
+
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <link rel='stylesheet' type='text/css' href="{% static 'css/add_products/add_product_form.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+
+<body>
+    <div class="add">
+        <div class="container" style="border: thick white;">
+            <!-- <div class="jumbotron" style="background-color:#FFFFFF"> -->
+            <div class="form-group row">
+                <h1><b><i>Add Products Form</i></b></h1>
+                <br>
+                <form class="form-group row" enctype="multipart/form-data" method="POST" style="border:1px solid white">
+                    {%csrf_token%}
+                    <div id="form" class="container" style="border: solid grey;">
+                        {{ form|crispy }}
+                        <hr style="border-color: black;">
+                        <div class="checkbox" style="border:white">
+                            <label><input id="terms" type="checkbox"><b id="term">This form is only for
+                                    sellers...</b></label><br>
+                            <label><input id="terms" type="checkbox"><b id="term">Accept terms and
+                                    conditions</b></label>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-primary">Add</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- </div> -->
+        </div>
+    </div>
+
+</body>
+
+</html>
