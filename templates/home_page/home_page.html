@@ -1,0 +1,292 @@
+{% include "base.html" %}
+<html>
+
+<head>
+    <title>Sellit|Home</title>
+    {% load static %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home_page/home_page.css' %}">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!-- for images on home_page-->
+</head>
+
+<body>
+    {% if user.is_authenticated %}
+    <h3 style="position:relative;left:10px;"><i class="fa fa-user"
+            style="font-size:24px;color:blue;"></i>{{user.username}}</h3>
+    {% endif %}
+    <hr>
+    <!-- slideshow -->
+    <div class="slideshow-container">
+
+        <div class="mySlides fade">
+            <div class="numbertext">1 / 5</div>
+            <img src="{% static 'images/slideshow/HDFC.jpg'%}" style="width:100%;height:300px">
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">2 / 5</div>
+            <img src="{% static 'images/slideshow/Bunk.jpg'%}" style="width:100%;height:300px">
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">3 / 5</div>
+            <img src="{% static 'images/slideshow/watch.jpg'%}" style="width:100%;height:300px">
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">4 / 5</div>
+            <img src="{% static 'images/slideshow/alexa.jpg'%}" style="width:100%;height:300px">
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">5 / 5</div>
+            <img src="{% static 'images/slideshow/kirana.jpg'%}" style="width:100%;height:300px">
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+    </div>
+    <br>
+
+    <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+        <span class="dot" onclick="currentSlide(5)"></span>
+
+    </div>
+
+    <!-- images -->
+    <!-- deals -->
+
+    <hr>
+    <h2>Sellit Deals Of The Day</h2>
+    <h5 style="color:grey;"> Deals Refresh Every 8 Hours</h5>
+    <hr>
+    <div>
+        <div class="gallery">
+            <a target="_blank" href="#">
+                <img style="position:relative;left:15px;top:10px;width:150px;height:100px;"
+                    src="{% static 'images/Deals/Asus.jpeg'%}" alt="Asus vivibook S series">
+            </a>
+            <div style="color:green;" class="desc"><br>*just Rs.46990</div>
+            <div class="desc">Asus vivibook S series</div>
+        </div>
+
+        <div class="gallery">
+            <a target="_blank" href="#">
+                <img style="position:relative;left:15px;top:10px;width:150px;height:100px;"
+                    src="{% static 'images/Deals/Fastrack.jpeg'%}" alt="Fastrack">
+            </a>
+            <div style="color:green;" class="desc"><br>*Min 70% off</div>
+            <div class="desc">Fastrack,Fossil & more</div>
+        </div>
+
+        <div class="gallery">
+            <a target="_blank" href="#">
+                <img style="position:relative;left:15px;top:10px;width:150px;height:100px;"
+                    src="{% static 'images/Deals/Furnishing.jpeg'%}" alt="Home Furnishings">
+            </a>
+            <div style="color:green;" class="desc"><br>*From Rs.99</div>
+            <div class="desc">Home Furnishings<br><br></div>
+        </div>
+
+        <div class="gallery">
+            <a target="_blank" href="#">
+                <img style="position:relative;left:15px;top:10px;width:150px;height:100px;"
+                    src="{% static 'images/Deals/Metronaut.jpeg'%}" alt="Metronaut">
+            </a>
+            <div style="color:green;" class="desc"><br>*Min 60% off</div>
+            <div class="desc">Metronaut<br><br></div>
+        </div>
+
+        <div class="gallery">
+            <a target="_blank" href="#">
+                <img style="position:relative;left:15px;top:10px;width:150px;height:100px;"
+                    src="{% static 'images/Deals/Powerbanks.jpeg'%}" alt="powerbanks">
+            </a>
+            <div style="color:green;" class="desc"><br>*Extra Rs.100 off</div>
+            <div class="desc">Powerbanks<br><br></div>
+        </div>
+
+        <div class="gallery">
+            <a target="_blank" href="#">
+                <img style="position:relative;left:15px;top:10px;width:150px;height:100px;"
+                    src="{% static 'images/Deals/Adidas.jpeg'%}" alt="Adidas">
+            </a>
+            <div style="color:green;" class="desc"><br>*Min 45% off</div>
+            <div class="desc">Adidas<br><br></div>
+        </div>
+    </div>
+
+    <!-- Mobiles -->
+    <h2> Recommended Best selling Phones</h2>
+    <h5 style="color:grey;">Trending Now</h5>
+    <hr>
+    <div>
+        <div class="gallery">
+            <a target="_blank" href="#">
+                <img style="position:relative;left:50px;top:10px;" src="{% static 'images/mobiles/Redmi 8a.jpeg'%}"
+                    alt="Redmi 8a">
+            </a>
+            <div class="desc">Redmi 8a</div>
+            <div style="color:black;" class="desc"><b>Rs.6,999</b></div>
+        </div>
+
+        <div class="gallery">
+            <a target="_blank" href="#">
+                <img style="position:relative;left:50px;top:10px;" src="{% static 'images/mobiles/Realme xt.jpeg'%}"
+                    alt="Realme xt">
+            </a>
+            <div class="desc">Realme xt</div>
+            <div style="color:black;" class="desc"><b>Rs.15,999</b></div>
+
+        </div>
+
+        <div class="gallery">
+            <a target="_blank" href="#">
+                <img style="position:relative;left:50px;top:10px;" src="{% static 'images/mobiles/Realme x.jpeg'%}"
+                    alt="Realme x">
+            </a>
+            <div class="desc">Realme x</div>
+            <div style="color:black;" class="desc"><b>Rs.14,999</b></div>
+
+        </div>
+
+        <div class="gallery">
+            <a target="_blank" href="#">
+                <img style="position:relative;left:50px;top:10px;" src="{% static 'images/mobiles/poco x2.jpeg'%}"
+                    alt="poco x2">
+            </a>
+            <div class="desc">Poco x2</div>
+            <div style="color:black;" class="desc"><b>Rs.24,999</b></div>
+
+        </div>
+
+        <div class="gallery">
+            <a target="_blank" href="#">
+                <img style="position:relative;left:50px;top:10px;" src="{% static 'images/mobiles/Motorola.jpeg'%}"
+                    alt="Motorola">
+            </a>
+            <div class="desc">Motorola</div>
+            <div style="color:black;" class="desc"><b>Rs.13,999</b></div>
+
+        </div>
+
+        <div class="gallery">
+            <a target="_blank" href="#">
+                <img style="position:relative;left:50px;top:10px;" src="{% static 'images/mobiles/Realme 5 pro.jpeg'%}"
+                    alt="Realme 5 pro">
+            </a>
+            <div class="desc">Realme 5 pro</div>
+            <div style="color:black;" class="desc"><b>Rs.12,999</b></div>
+
+        </div>
+        <br />
+    </div>
+
+    <!-- laptops -->
+
+    <h2>Recommended Items</h2>
+    <h5 style="color:grey;">Inspired by Your Interest</h5>
+    <hr>
+    <div>
+        <div class="gallery">
+            <a target="_blank" href="#">
+                <img style="position:relative;left:15px;top:10px;width:150px;height:100px;"
+                    src="{% static 'images/laptops/hp1.jpeg'%}" alt="HP 14q Core i3 7th Gen">
+            </a>
+            <div class="desc">HP 14q Core i3 7th Gen</div>
+            <div style="color:black;" class="desc"><b>Rs.31,990</b></div>
+
+        </div>
+
+        <div class="gallery">
+            <a target="_blank" href="#">
+                <img style="position:relative;left:15px;top:10px;width:150px;height:100px;"
+                    src="{% static 'images/laptops/hp2.jpeg'%}" alt="HP 14q Core i5 8th Gen">
+            </a>
+            <div class="desc">HP 14q Core i5 8th Gen</div>
+            <div style="color:black;" class="desc"><b>Rs.41,990</b></div>
+
+        </div>
+
+        <div class="gallery">
+            <a target="_blank" href="#">
+                <img style="position:relative;left:15px;top:10px;width:150px;height:100px;"
+                    src="{% static 'images/laptops/hp6.jpeg'%}" alt="Dell vostro 3480 i3 7th Gen">
+            </a>
+            <div class="desc">Dell vostro 3480 i3 7th Gen</div>
+            <div style="color:black;" class="desc"><b>Rs.24,990</b></div>
+
+        </div>
+
+        <div class="gallery">
+            <a target="_blank" href="#">
+                <img style="position:relative;left:15px;top:10px;width:150px;height:100px;"
+                    src="{% static 'images/laptops/hp7.jpeg'%}" alt="HP 15q Core i3 7th Gen">
+            </a>
+            <div class="desc">HP 15q Core i3 7th Gen</div>
+            <div style="color:black;" class="desc"><b>Rs.30,990</b></div>
+
+        </div>
+
+        <div class="gallery">
+            <a target="_blank" href="#">
+                <img style="position:relative;left:15px;top:10px;width:150px;height:100px;"
+                    src="{% static 'images/laptops/lenovo1.jpeg'%}" alt="Lenovo Ideapad 130 APU Dual Core A6 ">
+            </a>
+            <div class="desc">Lenovo Ideapad 130 APU Dual Core A6 </div>
+            <div style="color:black;" class="desc"><b>Rs.20,990</b></div>
+
+        </div>
+
+        <div class="gallery">
+            <a target="_blank" href="#">
+                <img style="position:relative;left:15px;top:10px;width:150px;height:100px;"
+                    src="{% static 'images/laptops/lenovo2.jpeg'%}" alt="Lenovo Ideapad 130 Core i5 8th Gen">
+            </a>
+            <div class="desc">Lenovo Ideapad 130 Core i5 8th Ge</div>
+            <div style="color:black;" class="desc"><b>Rs.39,990</b></div>
+
+        </div>
+    </div>
+
+    <!-- javascript for slideshow -->
+
+    <script>
+        var slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("dot");
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+        }
+    </script>
+
+</body>
+
+</html>
