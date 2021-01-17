@@ -1,0 +1,45 @@
+{% include "base.html" %}
+
+<html>
+
+<head>
+    <title>Sellit|Products</title>
+
+    {% load static %}
+    <!-- <link rel="stylesheet" type="text/css" href="{% static 'css/add_products/add_product_form.css' %}"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        #btn {
+            position: relative;
+            left: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1><b><i>Products</i></b></h1>
+    <hr>
+    <br>
+    <form action='#' method=post> {% csrf_token%}
+
+        {% for product in object %}
+        Category : {{product.Category}} <br>
+        Type : {{product.Type}} <br>
+        Title : {{product.Title}} <br>
+        Price : {{product.Price}} <br>
+        Description : {{product.Description}} <br>
+        Specification : {{product.Specification}} <br>
+        Image :<img src="{{product.image.url}}" alt={{product.image.url}}>
+        <hr>
+        {% endfor %}
+    </form>
+</body>
+
+</html>
